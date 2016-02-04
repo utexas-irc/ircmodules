@@ -1,7 +1,7 @@
 help([[
 This module defines the environmental variable FREESURFER_HOME,
-adds the binaries to your PATH, and adds the libs to your 
-LD_LIBRARY_PATH.
+adds the binaries for freesurfer, fsfast, and mni to your PATH,
+and adds the libs to your LD_LIBRARY_PATH.
 
 Note that you must still source $FREESURFER_HOME/SetUpFreeSurfer.sh
 in order to use it.
@@ -18,7 +18,10 @@ prereq('matlab');
 local freesurfer_dir='/work/IRC/ls5/opt/apps/freesurfer-5.3.0';
 
 append_path('PATH', pathJoin(freesurfer_dir, 'bin'));
+append_path('PATH', pathJoin(freesurfer_dir, 'fsfast/bin'));
+append_path('PATH', pathJoin(freesurfer_dir, 'mni/bin'));
 append_path('LD_LIBRARY_PATH', pathJoin(freesurfer_dir, 'lib'));
+append_path('LD_LIBRARY_PATH', pathJoin(freesurfer_dir, 'mni/lib'));
 setenv('FREESURFER_HOME', freesurfer_dir);
 
 if (mode() == "load") then
